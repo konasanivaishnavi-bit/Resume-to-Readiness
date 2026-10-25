@@ -46,3 +46,4 @@ Alternative: Netlify Drop — open Netlify, sign in if needed, and drag the extr
 - `styles.css`: responsive styling
 - `app.js`: local prototype logic
 - `assets/logo.svg`: official project mark
+- Resume to Readiness website
