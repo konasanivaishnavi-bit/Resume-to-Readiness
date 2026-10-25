@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10243a">
+<title>Resume to Readiness</title>
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar">
+<a class="brand" href="#overview"><img src="assets/logo.svg" alt=""><span><b>Resume to</b><b>Readiness</b><small>CAREER DEVELOPMENT</small></span></a>
+<div class="profile"><div class="avatar" id="avatar">RT</div><div><b id="profileLabel">Your workspace</b><small>Personal dashboard</small></div></div>
+<nav>
+<a class="nav active" href="#overview" data-view="overview">▦ &nbsp; Overview</a>
+<a class="nav" href="#resume" data-view="resume">▤ &nbsp; Resume Lab</a>
+<a class="nav" href="#roadmap" data-view="roadmap">⌁ &nbsp; Readiness roadmap</a>
+<a class="nav" href="#evidence" data-view="evidence">✓ &nbsp; Evidence & points</a>
+<a class="nav" href="#weekly" data-view="weekly">▥ &nbsp; Weekly progress</a>
+<a class="nav" href="#profile" data-view="profile">⚙ &nbsp; Profile & goals</a>
+</nav>
+<div class="sidebar-foot"><div class="bixby">✦ <span><b>Bixby guide</b><small>One thoughtful step at a time.</small></span></div><button class="link-button" id="reset">Reset demo data</button></div>
+</aside>
+<main>
+<header class="topbar"><button id="menu" class="menu" aria-label="Toggle navigation">☰</button><div class="crumb">Workspace <span>/</span> <b id="pageName">Overview</b></div><span class="status">● Personal workspace</span></header>
+<div class="content">
+<section class="view active" id="view-overview">
+<div class="hero"><div><label>YOUR CAREER JOURNEY</label><h1>Build readiness.<br><em>Prove your progress.</em></h1><p>Turn your career goal into a practical plan, track your work, and keep the evidence that matters.</p><button class="btn light" data-go="resume">Open Resume Lab ↗</button></div><div class="hero-art"><div class="ring"></div><div class="paper"><b>R<span>→</span></b><i></i><i></i><i class="short"></i><strong>✓</strong></div><div class="float">✦ <span id="heroPoints">0</span> Cost Points</div></div></div>
+<div class="section-head"><div><label>YOUR SNAPSHOT</label><h2>Good progress starts with clarity.</h2></div><span id="today"></span></div>
+<div class="metrics">
+<article class="metric"><small>CAREER ALIGNMENT</small><strong><span id="readiness">0</span><sup>/100</sup></strong><div class="track"><i id="readyBar"></i></div><p id="readinessNote">Set a target role to begin.</p></article>
+<article class="metric"><small>COST POINTS</small><strong id="points">0</strong><div class="pill-line"><span class="pill" id="level">Starter</span><small id="nextLevel">100 pts to Master</small></div><p>Eligible work earns points after verification.</p></article>
+<article class="metric"><small>WEEKLY LEARNING</small><strong><span id="hours">0</span><sup> hrs</sup></strong><div class="track"><i id="hoursBar"></i></div><p id="hoursCaption">0 of 5 goal hours</p></article>
+<article class="metric"><small>VERIFIED WORK</small><strong id="verified">0</strong><p>Evidence-backed activities.</p><p>Keep proof of the skills you demonstrate.</p></article>
+</div>
+<div class="two-col">
+<article class="card"><div class="card-head"><div><label>CONSISTENCY OVER INTENSITY</label><h3>Your week at a glance</h3></div><select id="chartMetric"><option value="both">Points + hours</option><option value="points">Cost points</option><option value="hours">Learning hours</option></select></div><div class="legend"><span>● Cost points</span><span>● Learning hours</span></div><div class="chartbox"><canvas id="chart"></canvas><div id="chartEmpty" class="empty">Your activity appears here when you log work.</div></div><div class="days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></article>
+<article class="card"><label>YOUR NORTH STAR</label><h3>Career goal</h3><h2 id="goalRole">Set your target role</h2><p class="muted" id="goalMeta">Add a salary target and goal period in your profile.</p><div class="goal-info"><div><small>Target salary</small><b id="goalSalary">Not set</b></div><div><small>Goal period</small><b id="goalPeriod">Not set</b></div></div><button class="btn outline full" data-go="profile">Edit career goal</button></article>
+</div>
+<div class="two-col lower">
+<article class="card"><label>NEXT BEST STEP</label><h3 id="nextTitle">Define your target role</h3><p class="muted" id="nextDescription">A clear goal helps us suggest more relevant skills and projects.</p><button class="btn dark" data-go="resume">Continue journey →</button></article>
+<article class="card"><label>LEVEL PROGRESSION</label><h3>Your milestones</h3><div id="levelTrack" class="levels"></div><p class="fine">Levels reflect recorded progress, not a guarantee of employment or salary.</p></article>
+</div><p class="disclaimer">Resume to Readiness provides guidance, not guarantees. Salary and career outcomes depend on many factors; review recommendations before making important decisions.</p>
+</section>
+
+<section class="view" id="view-resume">
+<div class="page-heading"><div><label>CAREER INTELLIGENCE</label><h1>Resume Lab</h1><p>Set a goal and compare your resume with it. Findings explain what the text shows and what still needs your review.</p></div><div class="heading-icon">▤</div></div>
+<div class="lab-grid">
+<div>
+<article class="card form-card"><div class="subhead"><span>01</span><div><h3>Your target</h3><p>Specific goals make analysis more useful.</p></div></div>
+<form id="goalForm" class="form-grid">
+<label class="field wide">Target role<input id="targetRole" maxlength="100" required placeholder="e.g., Data Analyst"></label>
+<label class="field">Target industry<select id="industry"><option>Technology</option><option>Finance</option><option>Healthcare</option><option>Education</option><option>Consulting</option><option>Marketing</option><option>Manufacturing</option><option>Other</option></select></label>
+<label class="field">Preferred location<input id="location" placeholder="e.g., Hyderabad / Remote"></label>
+<label class="field">Current salary (optional)<input id="currentSalary" placeholder="e.g., ₹4 LPA"></label>
+<label class="field">Target salary<input id="targetSalary" placeholder="e.g., ₹8 LPA"></label>
+<label class="field">Goal period<select id="period"><option>3 months</option><option selected>6 months</option><option>12 months</option><option>18 months</option><option>24 months</option></select></label>
+<label class="field">Weekly learning hours<select id="weeklyGoal"><option value="2">2 hours</option><option value="5" selected>5 hours</option><option value="7">7 hours</option><option value="10">10 hours</option><option value="15">15 hours</option><option value="20">20 hours</option></select></label>
+<label class="field wide">Education / experience<textarea id="background" rows="3" placeholder="Degree, current study, internships, experience, career-change context"></textarea></label>
+<button class="btn dark wide">Save career goal →</button>
+</form></article>
+<article class="card form-card"><div class="subhead"><span>02</span><div><h3>Add your resume</h3><p>Choose a text file or paste resume text below.</p></div></div>
+<label class="upload">↑ <b>Choose resume file</b><small>TXT supported in this browser prototype · up to 5 MB</small><input id="resumeFile" type="file" accept=".txt,text/plain"></label><div id="fileName" class="file-name" hidden></div>
+<label class="field">Or paste resume text<textarea id="resumeText" rows="8" placeholder="Paste resume content here for a more detailed analysis..."></textarea></label>
+<p class="notice">Privacy note: this prototype analyzes text in your browser. Avoid adding confidential information. PDF/DOCX extraction and secure server processing need a backend.</p>
+<button class="btn dark full" type="button" id="analyze">Analyze my resume →</button><p class="fine">Initial rule-based assessment only—not a validated hiring, ATS, or salary prediction.</p>
+</article>
+</div>
+<div id="analysisArea"><article class="card analysis-empty"><div class="empty-art">▤ <b>✓</b></div><h3>Your analysis starts here</h3><p>Set a target role and add resume text to receive an evidence-aware breakdown of skills, projects, experience, education, and readability.</p><div class="steps"><span>① Set goal</span><span>② Add resume</span><span>③ Review findings</span></div></article></div>
+</div>
+</section>
+
+<section class="view" id="view-roadmap">
+<div class="page-heading"><div><label>A PLAN THAT FITS YOUR GOAL</label><h1>Readiness roadmap</h1><p>Complete practical tasks, capture evidence, and build a record of skills you can demonstrate.</p></div><div class="heading-icon">⌁</div></div>
+<div class="roadmap-banner"><div><label>YOUR CURRENT DIRECTION</label><h2 id="roadmapRole">Set your target role in Resume Lab</h2><p id="roadmapSub">Recommendations will be saved here.</p></div><div class="roadmap-progress"><strong id="roadmapPercent">0%</strong><small>tasks completed</small><div class="track"><i id="roadmapBar"></i></div></div></div>
+<div class="toolbar"><h3>Action plan</h3><button class="btn dark" id="addTask">+ Add a task</button></div><div id="roadmapList" class="task-list"></div>
+</section>
+
+<section class="view" id="view-evidence">
+<div class="page-heading"><div><label>WORK THAT CAN BE REVIEWED</label><h1>Evidence & Cost Points</h1><p>Log real work, attach proof, and see why points were awarded. Submission alone does not mean evidence is verified.</p></div><div class="heading-icon">✓</div></div>
+<div class="metrics three">
+<article class="metric"><small>TOTAL COST POINTS</small><strong id="evPoints">0</strong><span class="pill" id="evLevel">Starter</span></article><article class="metric"><small>VERIFIED ACTIVITIES</small><strong id="evVerified">0</strong><p>Eligible verified records</p></article><article class="metric"><small>AWAITING REVIEW</small><strong id="evPending">0</strong><p>Submitted evidence</p></article>
+</div>
+<div class="two-col evidence-layout">
+<article class="card form-card"><label>LOG YOUR WORK</label><h3>Submit an activity</h3><form id="evidenceForm" class="form-grid">
+<label class="field wide">Activity type<select id="activityType"><option value="module">Learning module · 10 pts</option><option value="quiz">Knowledge quiz · 15 pts</option><option value="assignment">Practical assignment · 20 pts</option><option value="project">Portfolio project · 40 pts</option><option value="interview">Mock interview · 15 pts</option><option value="improvement">Improved mock-test score · 10 pts</option><option value="weekly">Weekly learning goal · 25 pts</option><option value="mentor">Mentor review · 20 pts</option></select></label>
+<label class="field wide">What did you complete?<input id="activityTitle" required maxlength="140" placeholder="e.g., Built a sales dashboard"></label>
+<label class="field wide">Evidence link or proof description<textarea id="activityEvidence" required rows="3" placeholder="Project URL, quiz result, file name, or description of proof"></textarea></label>
+<label class="field wide">Time spent (hours)<input id="activityHours" type="number" min="0" max="100" step=".25" value="1" required></label>
+<button class="btn dark wide">Submit for review →</button></form><p class="notice">Never submit passwords, private keys, confidential employer files, or unnecessary personal information.</p></article>
+<article class="card"><label>POINTS POLICY</label><h3>Levels and verification</h3><div id="pointsPolicy"></div><p class="fine">For this demo, you can verify records locally. Production needs authenticated reviewers or a trusted validation service.</p></article>
+</div>
+<article class="card records"><div class="card-head"><div><label>AUDITABLE ACTIVITY HISTORY</label><h3>Your evidence records</h3></div><select id="evidenceFilter"><option value="all">All records</option><option value="pending">Under review</option><option value="verified">Verified</option><option value="rejected">Rejected</option></select></div><div id="recordsList"></div></article>
+</section>
+
+<section class="view" id="view-weekly">
+<div class="page-heading"><div><label>SMALL STEPS, REAL SIGNALS</label><h1>Weekly progress</h1><p>Review learning time, verified work, and Cost Points recorded during the current week.</p></div><div class="heading-icon">▥</div></div>
+<article class="card"><div class="card-head"><div><label>WEEKLY ACTIVITY</label><h3>Daily activity graph</h3></div><select id="reportMetric"><option value="both">Points + hours</option><option value="points">Cost points</option><option value="hours">Learning hours</option></select></div><div class="chartbox big"><canvas id="reportChart"></canvas><div id="reportEmpty" class="empty">No activity recorded this week yet.</div></div><div class="days"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></article>
+<div class="metrics four report-metrics"><article class="metric"><small>HOURS LOGGED</small><strong id="reportHours">0</strong><p id="reportHoursGoal">0 of 5 goal hours</p></article><article class="metric"><small>POINTS EARNED</small><strong id="reportPoints">0</strong><p>Verified work only.</p></article><article class="metric"><small>WORK SUBMITTED</small><strong id="reportSubmitted">0</strong><p>Evidence records this week.</p></article><article class="metric"><small>VERIFIED THIS WEEK</small><strong id="reportVerified">0</strong><p>Approved activities.</p></article></div>
+<article class="card"><label>REFLECT AND ADJUST</label><h3>Weekly review</h3><p id="reflection" class="muted">Your reflection will appear as you log activity.</p><button class="btn outline" data-go="evidence">Log an activity</button></article>
+</section>
+
+<section class="view" id="view-profile">
+<div class="page-heading"><div><label>MAKE THIS SPACE YOURS</label><h1>Profile & goals</h1><p>Keep your target realistic and revisit it as your situation changes.</p></div><div class="heading-icon">⚙</div></div>
+<div class="two-col"><article class="card form-card"><label>PROFILE</label><h3>Personal workspace</h3><form id="profileForm" class="form-grid"><label class="field wide">Display name<input id="displayName" maxlength="70" placeholder="Your name or preferred display name"></label><label class="field wide">Learning focus<textarea id="learningFocus" rows="3" placeholder="What are you learning now?"></textarea></label><button class="btn dark wide">Save profile</button></form></article><article class="card form-card"><label>YOUR GOAL</label><h3>Career target summary</h3><div id="profileGoal"></div><button class="btn outline full" data-go="resume">Edit in Resume Lab</button><p class="notice">This prototype stores data in this browser's local storage. It is not an account system and does not sync across devices.</p></article></div>
+</section>
+</div>
+<footer><span>© 2026 Resume to Readiness</span><span>Built around progress you can explain.</span><span>Guidance, not guarantees.</span></footer>
+</main></div>
+<div id="toast" class="toast" role="status"></div>
+<dialog id="taskDialog"><form id="taskForm" method="dialog"><div class="dialog-head"><h3>Add a roadmap task</h3><button type="button" id="closeDialog">×</button></div><label class="field">Task title<input id="taskTitle" required maxlength="140"></label><label class="field">Why it matters<textarea id="taskWhy" rows="3"></textarea></label><label class="field">Estimated hours<input id="taskHours" type="number" min=".25" max="200" step=".25" value="2"></label><div class="dialog-actions"><button type="button" class="btn outline" id="cancelDialog">Cancel</button><button class="btn dark">Add task</button></div></form></dialog>
+<script src="app.js"></script>
+</body></html>
